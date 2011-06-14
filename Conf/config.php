@@ -17,4 +17,5 @@ return array(
     
 	'DB_PREFIX'=>'jxcb_', // 数据表前缀
 );
+
 ?>
