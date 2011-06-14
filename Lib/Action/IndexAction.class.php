@@ -23,6 +23,11 @@ class IndexAction extends Action
         $env_table = check_env();//根据当前函数获取当前环境
         echo $env_table;
     }
+    
+    public function ecDo()
+    {
+    	echo "你好！";
+    }
 
 }
 ?>
