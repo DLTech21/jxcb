@@ -7,7 +7,7 @@ return array(
 
 	'DB_HOST'=> 'localhost', // 数据库服务器地址   
 
-	'DB_NAME'=>'demo',  // 数据库名称   
+	'DB_NAME'=>'jxcb',  // 数据库名称   
 
 	'DB_USER'=>'root', // 数据库用户名   
 
@@ -15,6 +15,6 @@ return array(
 
 	'DB_PORT'=>'3306', // 数据库端口
     
-	'DB_PREFIX'=>'think_', // 数据表前缀
+	'DB_PREFIX'=>'jxcb_', // 数据表前缀
 );
 ?>
