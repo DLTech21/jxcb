@@ -8,8 +8,10 @@
 // 定义ThinkPHP框架路径   
 define('THINK_PATH', './ThinkPHP/');   
 
-//定义项目名称和路径   
-define('APP_NAME', 'jxc');   
+//定义项目名称   
+define('APP_NAME', 'jxc');
+
+// 定义项目路径
 define('APP_PATH', '.');   
 
 // 加载框架入口文件    

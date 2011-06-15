@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ <form method="post"  action="__URL__/insert" > 
+商品名称：<input type="text" name="name"><br /> 
+货号：<input type="text" name="huohao"><br/>
+颜色：<input type="text" name="yanse"><br/> 
+<input type="submit" value="新增数据"> 
+ </form> 
+<!--很环输出查诟绌果数据集-->  
+<volist name='list' id='vo' > 
+编号:{$vo.id}<br/> 
+名称： {$vo.name}<br/> 
+颜色：{$vo.yanse}<br/>
+货号： {$vo.huohao}<hr> 
+</volist>
+</body>
+</html>

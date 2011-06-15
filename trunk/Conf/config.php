@@ -1,6 +1,8 @@
 <?php
 return array(
 //'配置项'=>'配置值'
+	'APP_FILE_CASE'         => true,   // 是否检查文件的大小写 对Windows平台有效
+
 	'APP_DEBUG' => true, // 开启调试模式  
 
 	'DB_TYPE'=> 'mysql',   // 数据库类型   
