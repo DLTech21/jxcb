@@ -4,12 +4,20 @@ class IndexAction extends Action
 {
     /**
     +----------------------------------------------------------
-    * 默认操作
+    *判断用户是否登录
     +----------------------------------------------------------
     */
     public function index()
     {
-        $this->display(THINK_PATH.'/Tpl/Autoindex/hello.html');
+    	if (!Session::is_set(C('USER_AUTH_KEY')))
+    	{
+    		$this->redirect('Login/Login');
+    	}
+    	else 
+    	{
+    		$msg=Session::get(C('USER_AUTH_KEY')).'欢迎你回来';
+    	}
+        
     }
 
     /**
@@ -24,10 +32,11 @@ class IndexAction extends Action
         echo $env_table;
     }
     
-    public function ecDo()
-    {
-    	echo "你好！";
-    }
+//测试用    
+//    public function Login()
+//    {
+//    	echo "你好！";
+//    }
 
 }
 ?>
