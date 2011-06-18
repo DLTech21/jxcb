@@ -4,7 +4,7 @@
 *����ʱ�䣺2011-6-17
 *ע�⣺
 */
-class LoginAction extends IndexAction
+class UserAction extends IndexAction
 {
 	public function Login()
 	{
