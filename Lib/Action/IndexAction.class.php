@@ -11,7 +11,7 @@ class IndexAction extends Action
     {
     	if (!Session::is_set(C('USER_AUTH_KEY')))
     	{
-    		$this->redirect('Login/Login');
+    		$this->redirect('User/Login');
     	}
     	else 
     	{
