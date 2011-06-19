@@ -6,10 +6,10 @@
 */
 
 // 定义ThinkPHP框架路径   
-define('THINK_PATH', './ThinkPHP/');   
+define('THINK_PATH', './ThinkPHP');   
 
 //定义项目名称   
-define('APP_NAME', 'jxc');
+define('APP_NAME', 'jxcb');
 
 // 定义项目路径
 define('APP_PATH', '.'); 
