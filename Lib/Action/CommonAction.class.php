@@ -1,7 +1,7 @@
 <?php
 class CommonAction extends Action
 {
-	function verify()
+	function verify()//验证码
 	{
 		import('ORG.Util.Image');
 		Image::buildImageVerify(5,5);
