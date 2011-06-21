@@ -12,7 +12,20 @@ class UserAction extends IndexAction
 	}
 
 
-	
+	function LoginVerify()
+	{
+		$user = new Model('user');
+		if ($vo=$user->create())
+		{
+			dump($vo);
+			$this->success('登录成功');
+		}
+		else
+		{
+			dump($vo);
+			$this->error('登录失败');
+		}
+	}
 
 }
 
