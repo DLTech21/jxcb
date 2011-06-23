@@ -4,7 +4,7 @@
 *����ʱ�䣺2011-6-17
 *ע�⣺
 */
-class UserAction extends IndexAction
+class UserAction extends Action
 {
 	public function Login()
 	{
@@ -14,7 +14,12 @@ class UserAction extends IndexAction
 
 	function LoginVerify()
 	{
-		$user = new Model('user');
+		if($_SESSION['verify']!= md5($_POST['verify']))
+		{
+			$this->error('验证码错误');
+		}
+		
+		$user = new Model('User');
 		if ($vo=$user->create())
 		{
 			dump($vo);
