@@ -1,22 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
- <form method="post"  action="__URL__/insert" > 
-商品名称：<input type="text" name="name"><br /> 
-货号：<input type="text" name="huohao"><br/>
-颜色：<input type="text" name="yanse"><br/> 
-<input type="submit" value="新增数据"> 
- </form> 
-<!--很环输出查诟绌果数据集-->  
-<volist name='list' id='vo' > 
-编号:{$vo.id}<br/> 
-名称： {$vo.name}<br/> 
-颜色：{$vo.yanse}<br/>
-货号： {$vo.huohao}<hr> 
-</volist>
-</body>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>『鞋子进销存管理平台』By ThinkPHP {$Think.version}</title>
+<FRAMESET FRAMEBORDER=0 framespacing=0 border=0 rows="50, *,32">
+<FRAME SRC="__APP__/Public/top" name="top" FRAMEBORDER=0 NORESIZE SCROLLING='no' marginwidth=0 marginheight=0>
+<FRAMESET FRAMEBORDER=0  framespacing=0 border=0 cols="200,7, *" id="frame-body">
+	<FRAME SRC="__APP__/Public/menu" FRAMEBORDER=0 id="menu-frame" name="menu">
+    <frame src="__APP__/Public/drag" id="drag-frame" name="drag-frame" frameborder="no" scrolling="no">
+	<FRAME SRC="__APP__/Public/main" FRAMEBORDER=0 id="main-frame" name="main">
+</FRAMESET>
+<FRAME SRC="__APP__/Public/footer" name="footer" FRAMEBORDER=0 NORESIZE SCROLLING='no' marginwidth=0 marginheight=0>
+</FRAMESET>
 </html>

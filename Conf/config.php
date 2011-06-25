@@ -1,6 +1,5 @@
 <?php
-
-return array(
+$config = array(
 //'配置项'=>'配置值'
 	'USER_AUTH_KEY'		=>'authId', //配置认证SESSION标记,默认为authId
 	
@@ -23,4 +22,6 @@ return array(
 	'DB_PREFIX'			=>'jxcb_', // 数据表前缀
 );
 
+$RbacCnf = include './Conf/rbacconfig.php';
+return array_merge($config,$RbacCnf);
 ?>
