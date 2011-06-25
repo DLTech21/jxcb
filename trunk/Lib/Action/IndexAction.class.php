@@ -1,23 +1,12 @@
 <?php
-// 本文档自动生成，仅供测试运行
-class IndexAction extends Action
+
+class IndexAction extends CommonAction
 {
-    /**
-    +----------------------------------------------------------
-    *判断用户是否登录
-    +----------------------------------------------------------
-    */
-    public function index()
+
+	public function index()
     {
-    	if (!Session::is_set(C('USER_AUTH_KEY')))
-    	{
-    		$this->redirect('User/Login');
-    	}
-    	else 
-    	{
-    		$msg=Session::get(C('USER_AUTH_KEY')).'欢迎你回来';
-    	}
-        
+    	$this->display();
+    	        
     }
 
     /**
@@ -32,11 +21,6 @@ class IndexAction extends Action
         echo $env_table;
     }
     
-//测试用    
-//    public function Login()
-//    {
-//    	echo "你好！";
-//    }
 
 }
 ?>
