@@ -109,7 +109,7 @@ class PublicAction extends Action
 		redirect(__APP__);
 	}
 
-	public function Login()
+	public function login()
 	{
 		if(!isset($_SESSION[C('USER_AUTH_KEY')]))
 		{
