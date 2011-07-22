@@ -159,7 +159,7 @@ class PublicAction extends Action
 			}
 			$_SESSION[C('USER_AUTH_KEY')]	=	$authInfo['id'];
 			$_SESSION['email']	=	$authInfo['email'];
-			$_SESSION['loginUserName']		=	$authInfo['nickname'];
+			$_SESSION['loginUserName']		=	$authInfo['username'];
 			$_SESSION['lastLoginTime']		=	$authInfo['last_login_time'];
 			$_SESSION['login_count']	=	$authInfo['login_count'];
 			if($authInfo['username']=='admin') {
