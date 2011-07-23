@@ -123,7 +123,7 @@ class PublicAction extends Action
 
 	public function checkLogin()
 	{
-		if(empty($_POST['username']))
+		if(empty($_POST['account']))
 		{
 			$this->error('帐号错误！');
 		}
@@ -139,7 +139,7 @@ class PublicAction extends Action
 		//生成认证条件
 		$map            =   array();
 		// 支持使用绑定帐号登录
-		$map['username']	= $_POST['username'];
+		$map['account']	= $_POST['account'];
 		/*
 		 $map["status"]	=	array('gt',0);
 		 */
@@ -159,14 +159,14 @@ class PublicAction extends Action
 			}
 			$_SESSION[C('USER_AUTH_KEY')]	=	$authInfo['id'];
 			$_SESSION['email']	=	$authInfo['email'];
-			$_SESSION['loginUserName']		=	$authInfo['username'];
+			$_SESSION['loginUserName']		=	$authInfo['account'];
 			$_SESSION['lastLoginTime']		=	$authInfo['last_login_time'];
 			$_SESSION['login_count']	=	$authInfo['login_count'];
-			if($authInfo['username']=='admin') {
+			if($authInfo['account']=='admin') {
 				$_SESSION['administrator']		=	true;
 			}
 			//保存登录信息
-/*			$User	=	M('User');
+			$User	=	M('User');
 			$ip		=	get_client_ip();
 			$time	=	time();
 			$data = array();
@@ -175,7 +175,7 @@ class PublicAction extends Action
 			$data['login_count']	=	array('exp','login_count+1');
 			$data['last_login_ip']	=	$ip;
 			$User->save($data);
-*/
+
 
 			// 缓存访问权限
 			RBAC::saveAccessList();
