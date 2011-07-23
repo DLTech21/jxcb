@@ -8,9 +8,7 @@ class RoleAction extends CommonAction
 {
 	public function show()
 	{
-		$role = D('Role');
-		$list = $role->field("id, name, pid, status, remark")->select();
-		dump($list);
+
 		
 	}
 	
