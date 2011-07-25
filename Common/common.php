@@ -9,7 +9,7 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 // $Id$
-
+if (!defined('THINK_PATH')) exit();
 //公共函数
 function toDate($time, $format = 'Y-m-d H:i:s') {
 	if (empty ( $time )) {

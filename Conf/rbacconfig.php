@@ -4,6 +4,7 @@
  *����ʱ�䣺2011-6-25
  *ע�⣺
  */
+ if (!defined('THINK_PATH')) exit();
 return array(
 	'USER_AUTH_ON'			=>true,
 	'USER_AUTH_TYPE'		=>1,		// 默认认证类型 1 登录认证 2 实时认证
