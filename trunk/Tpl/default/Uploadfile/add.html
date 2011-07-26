@@ -12,9 +12,7 @@
 <div class="title">后台用户列表</div>
 <!--  功能操作区域  -->
 <div class="operate" >
-<html:imageBtn name="add" value="新增" click="add()" style="impBtn hMargin fLeft shadow" />
-<html:imageBtn name="edit" value="编辑" click="edit()" style="impBtn hMargin fLeft shadow" />
-<html:imageBtn name="delete" value="删除" click="del()" style="impBtn hMargin fLeft shadow" />
+
 <!-- 查询区域 -->
 <div class="fRig">
 <form method='post' action="__URL__">
@@ -30,7 +28,27 @@
 
 <!-- 列表显示区域  -->
 <div class="list" >
-<html:list id="checkList" name="user" style="list" checkbox="true" action="true" datasource="list" show="id:编号|8%,filename:文件名:edit,create_time|toDate='Y-m-d H#i#s':添加时间," actionlist="status|showStatus=$user['id']" />
+<form id="upload" method='post' action="__URL__/upload/" enctype="multipart/form-data">
+<table cellpadding=3 cellspacing=3 width="450PX">
+<tr>
+	<td colspan="2" class="tLeft">
+
+	</td>
+</tr>
+<tr>
+	<td class="tRight tTop"></td>
+	<td class="tLeft tTop">
+<div class="impBtn  fLeft" ><input name="filename" id="image" type="file" class="file huge" /></div>
+	<table id='tbl' style="clear:both"></table>
+  <input type="submit" value="提交" class="button" >
+</td>
+</tr>
+<tr>
+<td class="tRight tTop"></td>
+
+</tr>
+</table>
+</form>
 </div>
 <!--  分页显示区域 -->
 <div class="page">{$page}</div>
@@ -39,4 +57,3 @@
 <!-- 主体内容结束 -->
 </div>
 <!-- 主页面结束 -->
-
