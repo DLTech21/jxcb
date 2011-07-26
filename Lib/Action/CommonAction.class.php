@@ -440,5 +440,11 @@ function saveSort() {
 			}
 		}
 	}
+
+
+
+	function setup(){
+
+	}
 }
 ?>

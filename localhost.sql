@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2011 年 07 月 24 日 08:05
+-- 生成日期: 2011 年 07 月 26 日 02:22
 -- 服务器版本: 5.1.28
 -- PHP 版本: 5.2.6
 
@@ -43,26 +43,8 @@ CREATE TABLE IF NOT EXISTS `jxcb_access` (
 --
 
 INSERT INTO `jxcb_access` (`role_id`, `node_id`, `level`, `module`, `pid`) VALUES
-(1, 5, 1, NULL, 0),
-(2, 1, 1, NULL, 0),
-(3, 1, 1, NULL, 0),
-(1, 2, 2, NULL, 1),
-(2, 3, 2, NULL, 1),
-(1, 1, 1, NULL, 0),
-(1, 3, 2, NULL, 1),
-(1, 6, 3, NULL, 2),
-(1, 7, 3, NULL, 2),
-(1, 8, 3, NULL, 2),
-(1, 9, 3, NULL, 2),
-(4, 1, 1, NULL, 0),
-(4, 5, 1, NULL, 0),
-(4, 2, 2, NULL, 1),
-(4, 3, 2, NULL, 1),
-(4, 4, 2, NULL, 1),
-(4, 9, 3, NULL, 2),
-(4, 8, 3, NULL, 2),
-(4, 7, 3, NULL, 2),
-(4, 6, 3, NULL, 2);
+(7, 1, 1, NULL, 0),
+(7, 4, 2, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -80,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `jxcb_group` (
   `sort` smallint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `show` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '显示',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='运用菜单' AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='运用菜单' AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `jxcb_group`
@@ -88,7 +70,8 @@ CREATE TABLE IF NOT EXISTS `jxcb_group` (
 
 INSERT INTO `jxcb_group` (`id`, `name`, `title`, `create_time`, `update_time`, `status`, `sort`, `show`) VALUES
 (1, 'Management Center', '管理中心', 1222841259, 0, 1, 0, 1),
-(2, 'DocManagement', '文档管理', 1311486446, 0, 1, 0, 1);
+(2, 'DocManagement', '文档管理', 1311486446, 0, 1, 0, 1),
+(3, 'DocManagement', '', 1311645993, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -102,31 +85,43 @@ CREATE TABLE IF NOT EXISTS `jxcb_node` (
   `title` varchar(50) DEFAULT NULL COMMENT '标题',
   `status` tinyint(1) DEFAULT '0' COMMENT '状态,0为关,1为开',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-  `sort` smallint(6) unsigned DEFAULT NULL COMMENT '排序',
+  `sort` smallint(6) unsigned DEFAULT '0' COMMENT '排序',
   `pid` smallint(6) unsigned NOT NULL COMMENT '父ID',
   `level` tinyint(1) unsigned NOT NULL COMMENT '等级,1为项目,2为模块.3为方法',
-  `group_id` int(5) NOT NULL COMMENT '运用菜单ID',
+  `group_id` int(5) NOT NULL DEFAULT '0' COMMENT '运用菜单ID',
   PRIMARY KEY (`id`),
   KEY `level` (`level`),
   KEY `pid` (`pid`),
   KEY `status` (`status`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='节点表' AUTO_INCREMENT=22 ;
 
 --
 -- 转存表中的数据 `jxcb_node`
 --
 
 INSERT INTO `jxcb_node` (`id`, `name`, `title`, `status`, `remark`, `sort`, `pid`, `level`, `group_id`) VALUES
-(1, 'Management Center', '管理中心', 1, NULL, NULL, 0, 1, 0),
-(2, 'User', '用户管理', 1, NULL, NULL, 1, 2, 1),
-(3, 'Role', '部门管理', 1, NULL, NULL, 1, 2, 1),
-(6, 'Add', '添加用户', 1, '', NULL, 2, 3, 0),
-(4, 'Node', '节点管理', 1, NULL, NULL, 1, 2, 1),
-(5, 'DocManagement', '文档管理', 1, '', NULL, 0, 1, 0),
-(7, 'Edit', '编辑用户', 1, '', NULL, 2, 3, 0),
-(8, 'Delete', '删除用户', 1, '', NULL, 2, 3, 0),
-(9, 'Disable', '禁用用户', 1, '', NULL, 2, 3, 0);
+(1, 'Jxcb', '文档管理系统', 1, NULL, NULL, 0, 1, 0),
+(2, 'Group', '菜单管理', 1, NULL, NULL, 1, 2, 1),
+(3, 'User', '用户管理', 1, NULL, NULL, 1, 2, 1),
+(4, 'Role', '部门管理', 1, '', NULL, 1, 2, 1),
+(5, 'Node', '权限管理', 1, NULL, 0, 1, 2, 1),
+(6, 'Add', '添加', 1, '', 0, 2, 3, 0),
+(7, 'Read', '读取', 1, '', 0, 2, 3, 0),
+(8, 'Edit', '编辑', 1, '', 0, 2, 3, 0),
+(9, 'Update', '更新', 1, '', 0, 2, 3, 0),
+(10, 'Delete', '删除', 1, '', 0, 2, 3, 0),
+(11, 'ForeverDelete', '永久删除', 1, '不可恢复', 0, 2, 3, 0),
+(12, 'Add', '添加', 1, '', 0, 3, 3, 0),
+(13, 'Delete', '删除', 1, '', 0, 3, 3, 0),
+(14, 'Edit', '编辑', 1, '', 0, 3, 3, 0),
+(15, 'Read', '读取', 1, '', 0, 3, 3, 0),
+(16, 'Update', '更新', 1, '', 0, 3, 3, 0),
+(17, 'ForeverDelete', '永久删除', 1, '', 0, 3, 3, 0),
+(18, 'Forbid', '状态禁用', 1, '', 0, 2, 3, 0),
+(19, 'Recycle', '状态恢复', 1, '', 0, 2, 3, 0),
+(20, 'Uploadfile', '文件上传', 1, '', 0, 1, 2, 2),
+(21, 'Setup', '全站配置信息', 1, '', 0, 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -143,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `jxcb_role` (
   PRIMARY KEY (`id`),
   KEY `pid` (`pid`),
   KEY `status` (`status`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户组表' AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='用户组表' AUTO_INCREMENT=8 ;
 
 --
 -- 转存表中的数据 `jxcb_role`
@@ -153,7 +148,10 @@ INSERT INTO `jxcb_role` (`id`, `name`, `pid`, `status`, `remark`) VALUES
 (1, '总经办', 0, 1, ''),
 (2, '办公室', 0, 1, ''),
 (3, '员工', 0, 1, ''),
-(4, '总经理', 1, 1, '');
+(4, '总经理', 1, 1, ''),
+(5, '副总经理', 1, 1, ''),
+(6, '主任', 2, 1, ''),
+(7, '副主任', 2, 1, '');
 
 -- --------------------------------------------------------
 
@@ -175,7 +173,31 @@ CREATE TABLE IF NOT EXISTS `jxcb_role_user` (
 INSERT INTO `jxcb_role_user` (`role_id`, `user_id`) VALUES
 (1, '2'),
 (3, '3'),
-(4, '2');
+(4, '2'),
+(7, '3');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `jxcb_setup`
+--
+
+CREATE TABLE IF NOT EXISTS `jxcb_setup` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(11) COLLATE utf8_bin NOT NULL,
+  `title` varchar(11) COLLATE utf8_bin NOT NULL COMMENT '标题显示名称',
+  `value` varchar(11) COLLATE utf8_bin NOT NULL COMMENT '值',
+  `remarks` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='配置' AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `jxcb_setup`
+--
+
+INSERT INTO `jxcb_setup` (`id`, `name`, `title`, `value`, `remarks`) VALUES
+(1, 'title', '标题', '文档管理系统', ''),
+(2, 'title', '标题', '文档管理系统', '');
 
 -- --------------------------------------------------------
 
@@ -190,6 +212,17 @@ CREATE TABLE IF NOT EXISTS `jxcb_shangpin` (
   `yanse` varchar(5) COLLATE utf8_bin NOT NULL COMMENT '颜色',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='商品' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `jxcb_uploadfile`
+--
+
+CREATE TABLE IF NOT EXISTS `jxcb_uploadfile` (
+  `id` int(11) NOT NULL,
+  `filename` int(11) NOT NULL COMMENT '文件名'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='文件上传表';
 
 -- --------------------------------------------------------
 
@@ -223,8 +256,8 @@ CREATE TABLE IF NOT EXISTS `jxcb_user` (
 --
 
 INSERT INTO `jxcb_user` (`id`, `account`, `nickname`, `password`, `bind_account`, `last_login_time`, `last_login_ip`, `login_count`, `verify`, `email`, `remark`, `create_time`, `update_time`, `status`, `type_id`, `info`) VALUES
-(1, 'admin', '管理员', '202cb962ac59075b964b07152d234b70', '', 1311493935, '127.0.0.1', 11, NULL, '', '', 1311487586, 0, 1, 0, ''),
-(2, 'leader', '领导', 'c444858e0aaeb727da73d2eae62321ad', '', 1311494022, '127.0.0.1', 3, NULL, '', '', 1311487688, 1311487715, 1, 0, ''),
+(1, 'admin', '管理员', '202cb962ac59075b964b07152d234b70', '', 1311644571, '127.0.0.1', 42, NULL, '', '', 1311487586, 0, 1, 0, ''),
+(2, 'leader', '领导', 'c444858e0aaeb727da73d2eae62321ad', '', 1311499477, '127.0.0.1', 5, NULL, '', '', 1311487688, 1311487715, 1, 0, ''),
 (3, 'member', '员工', 'aa08769cdcb26674c6706093503ff0a3', '', 0, NULL, 0, NULL, '', '', 1311487849, 0, 1, 0, '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

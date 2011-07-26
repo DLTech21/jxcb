@@ -2,35 +2,35 @@
 <tagLib name="html" />
 {// 加载头部公共文件 }
 <include file="Public:header" />
-<!-- 菜单区域  -->
-
 <!-- 主页面开始 -->
 <div id="main" class="main" >
-
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title">后台用户列表</div>
+<div class="title"><present name="nodeName">[{$nodeName}] </present><eq name="level" value="1">应用</eq><eq name="level" value="2">模块</eq><eq name="level" value="3">操作</eq>列表 <span style="font-weight:normal">[ 分组:&nbsp;<volist name="groupList" id="tag"><a href="__URL__/index/group_id/{$key}">{$tag}</a>&nbsp;</volist><a href="__URL__">所有</a> ] </span></div>
 <!--  功能操作区域  -->
 <div class="operate" >
 <html:imageBtn name="add" value="新增" click="add()" style="impBtn hMargin fLeft shadow" />
 <html:imageBtn name="edit" value="编辑" click="edit()" style="impBtn hMargin fLeft shadow" />
 <html:imageBtn name="delete" value="删除" click="del()" style="impBtn hMargin fLeft shadow" />
+<html:imageBtn name="sort" value="排序" click="sort()" style="impBtn hMargin fLeft shadow" />
 <!-- 查询区域 -->
 <div class="fRig">
 <form method='post' action="__URL__">
-<div class="fLeft"><span id="key"><input type="text" name="account" title="帐号查询" class="medium" ></span></div>
+<div class="fLeft"><span id="key"><input type="text" name="name" title="名称查询" class="medium" ></span></div>
 <html:imageBtn type="submit" name="search" value="查询" style="impBtn hMargin fLeft shadow" />
 </div>
 <!-- 高级查询区域 -->
 <div  id="searchM" class=" none search cBoth" >
 </div>
+
 </form>
 </div>
 <!-- 功能操作区域结束 -->
 
 <!-- 列表显示区域  -->
 <div class="list" >
-<html:list id="checkList" name="user" style="list" checkbox="true" action="true" datasource="list" show="id:编号|8%,filename:文件名:edit,create_time|toDate='Y-m-d H#i#s':添加时间," actionlist="status|showStatus=$user['id']" />
+<div id="result" class="result none"></div>
+<html:list id="checkList" name="setup" style="list" checkbox="true" action="true" datasource="list" show="id:编号|10%,name:名称,title:显示名,value:配置值,remarks:说明" actionlist="status|showStatus=$setup['id'],edit:编辑:id" />
 </div>
 <!--  分页显示区域 -->
 <div class="page">{$page}</div>
