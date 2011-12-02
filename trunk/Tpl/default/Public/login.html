@@ -3,22 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ThinkPHP管理系统登录</title>
-<load href='__TMPL__/Css/style.css' />
-<load href="__TMPL__/Js/Base.js" />
-<load href="__TMPL__/Js/prototype.js" />
-<load href="__TMPL__/Js/mootools.js" />
-<load href="__TMPL__/Js/Ajax/ThinkAjax.js" />
-<load href="__TMPL__/Js/Form/CheckForm.js" />
-<load href="__TMPL__/Js/common.js" />
+<load href='__TMPL__Css/style.css' />
+<load href="__TMPL__Js/Base.js" />
+<load href="__TMPL__Js/prototype.js" />
+<load href="__TMPL__Js/mootools.js" />
+<load href="__TMPL__Js/Ajax/ThinkAjax.js" />
+<load href="__TMPL__Js/Form/CheckForm.js" />
+<load href="__TMPL__Js/common.js" />
  <script language="JavaScript">
 <!--
 var PUBLIC	 =	 '__TMPL__';
-ThinkAjax.image = [	 '__TMPL__/Images/loading2.gif', '__TMPL__/Images/ok.gif','__TMPL__/Images/update.gif' ]
+ThinkAjax.image = [	 '__TMPL__Images/loading2.gif', '__TMPL__Images/ok.gif','__TMPL__Images/update.gif' ]
 ThinkAjax.updateTip	=	'登录中～';
 function loginHandle(data,status){
 if (status==1)
 {
-$('result').innerHTML	=	'<span style="color:blue"><img SRC="__TMPL__/Images/ok.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle" > 登录成功！3 秒后跳转～</span>';
+$('result').innerHTML	=	'<span style="color:blue"><img SRC="__TMPL__Images/ok.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="" align="absmiddle" > 登录成功！3 秒后跳转～</span>';
 $('form1').reset();
 window.location = '__URL__';
 }
@@ -49,7 +49,7 @@ $('verifyImg').src= '__URL__/verify/'+timenow;
 <div class="tCenter hMargin">
 <table id="checkList" class="login shadow" cellpadding=0 cellspacing=0 >
 <tr><td height="5" colspan="2" class="topTd" ></td></tr>
-<tr class="row" ><Th colspan="2" class="tCenter space" ><img src="__TMPL__/Images/preview_f2.png" width="32" height="32" border="0" alt="" align="absmiddle"> ThinkPHP管理系统登录</th></tr>
+<tr class="row" ><Th colspan="2" class="tCenter space" ><img src="__TMPL__Images/preview_f2.png" width="32" height="32" border="0" alt="" align="absmiddle"> ThinkPHP管理系统登录</th></tr>
 <tr><td height="5" colspan="2" class="topTd" ></td></tr>
 <tr class="row" ><td colspan="2" class="tCenter"><div id="result" class="result none"></div></td></tr>
 <tr class="row" ><td class="tRight" width="25%">帐 号：</td><td><input type="text" class="medium bLeftRequire" check="Require" warning="请输入帐号" name="account"></td></tr>

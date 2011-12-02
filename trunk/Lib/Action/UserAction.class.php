@@ -8,7 +8,7 @@ class UserAction extends CommonAction {
 	// 检查帐号
 	public function checkAccount() {
         if(!preg_match('/^[a-z]\w{4,}$/i',$_POST['account'])) {
-            $this->error( '用户名必须是字母，且5位以上！');
+            $this->error( '用户名必须以字母开头，且5位以上！');
         }
 		$User = M("User");
         // 检测用户名是否冲突
