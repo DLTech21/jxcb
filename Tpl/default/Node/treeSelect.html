@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>节点挑选</title>
 <load href ="../Public/Css/style.css" />
-<import file="Js.Util.JTree" /> 
+<import file="Js.Util.JTree" />
 <script language="JavaScript">
 <!--
 function ok(){
@@ -16,7 +16,7 @@ function ok(){
 	result[0][2]	=	document.getElementById('Level').value;
 
 	returnValue=result;
-	window.close(); 
+	window.close();
 }
 
 //-->
@@ -59,11 +59,11 @@ function ok(){
 			alert("控件："+pObjID+"　不存在，或没有value属性")
 		}
 	}
-	
+
 	function $(pID){
 		return document.getElementById(pID);
 	}
-	
+
 	function getNodeAtt(pNode,pAtt){
 		try{
 			return pNode.attributes.getNamedItem(pAtt).nodeValue;
@@ -73,7 +73,7 @@ function ok(){
 	}
 	parm	=	location.href.replace('http://'+location.hostname+'__ACTION__','');
 	var myTree=new JTree("showTree","__URL__/tree/title/{:urlencode('选择节点')}/caption/title/"+parm,false);
-	myTree.setPicPath("__ROOT__/Public/Images/JTreePic/")
+	myTree.setPicPath("__ROOT__/Images/JTreePic/")
 	myTree.onclick=function(){
 		if(getNodeAtt(myTree.selectNode,"id")==undefined){
 			if (myTree.EXPANDALL == false)
@@ -82,7 +82,7 @@ function ok(){
 			}else {
 				myTree.expand(false);
 			}
-			
+
 		}else {
 		setValueById("Id",getNodeAtt(myTree.selectNode,"id"));
 		setValueById("Name",getNodeAtt(myTree.selectNode,"caption"));
@@ -100,7 +100,7 @@ function ok(){
 	myTree.CAPTIONATT="caption";
 	myTree.create();
 	myTree.expend(false);
-	
+
 function vControl(pChoice,pParm){
 	switch(pChoice){
 		case "REPLACE":

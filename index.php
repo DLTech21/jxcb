@@ -9,7 +9,7 @@
 define('THINK_PATH', './ThinkPHP');
 
 //定义项目名称
-define('APP_NAME', 'jxcb');
+define('APP_NAME', 'Jxcb');
 
 // 定义项目路径
 define('APP_PATH', '.');

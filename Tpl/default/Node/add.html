@@ -14,6 +14,10 @@
 	<td class="tLeft" ><input type="text" class="medium bLeftRequire" check='Require' warning="显示名称必须"  name="title"></td>
 </tr>
 <tr>
+	<td class="tRight" >序号：</td>
+	<td class="tLeft" ><input  type="text" class="medium bLeftRequire" value="0" check='Require' name="sort"></td>
+</tr>
+<tr>
 	<td class="tRight" >分 组：</td>
 	<td class="tLeft" >
 	<SELECT class="medium bLeft" name="group_id">
@@ -21,8 +25,7 @@
 	<volist name="list" id="vo">
 	<option value="{$vo.id}">{$vo.title}</option>
 	</volist>
-	</SELECT>
-	</td>
+	</SELECT>	</td>
 </tr>
 <tr>
 	<td class="tRight">状态：</td>
@@ -33,7 +36,7 @@
 </tr>
 <tr>
 	<td class="tRight tTop">描 述：</td>
-	<td class="tLeft"><TEXTAREA class="large bLeft" name="remark"  rows="5" cols="57"></textarea></td>
+	<td class="tLeft"><textarea class="large bLeft" name="remark"  rows="5" cols="57"></textarea></td>
 </tr>
 <tr>
 	<td></td>
@@ -41,7 +44,7 @@
 	<input type="hidden" name="level" value="{$level}">
 	<input type="hidden" name="pid" value="{$pid}">
 	<input type="hidden" name="ajax" value="1">
-	<div class="impBtn fLeft"><input type="button" value="保存" onclick="sendForm('form1','__URL__/insert/','tips')" class="save imgButton"></div>
+	<div class="impBtn fLeft"><input type="button" value="保存" onClick="sendForm('form1','__URL__/insert/','tips')" class="save imgButton"></div>
 	<div class="impBtn fRig"><input type="reset" class="reset imgButton" value="清空" ></div>
 	</div></td>
 </tr>
