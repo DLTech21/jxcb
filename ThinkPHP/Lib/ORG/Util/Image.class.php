@@ -260,7 +260,7 @@ class Image extends Think {//类定义开始
      * @return string
       +----------------------------------------------------------
      */
-    static function buildString($string, $rgb=array(), $filename='', $type='png', $disturb=1, $border=true) {
+    static function buildString($string, $rgb=array(), $filename='', $type='png', $disturb=3, $border=true) {
         if (is_string($size))
             $size = explode(',', $size);
         $width = $size[0];

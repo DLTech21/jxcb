@@ -44,7 +44,7 @@ class UploadfileAction extends CommonAction {
 		//设置上传文件类型
 		$upload->allowExts = explode(',', 'jpg,gif,png,jpeg');
 		//设置附件上传目录
-		$upload->savePath = __TMPL__.'/Uploads/';
+		$upload->savePath = __TMPL__.'Attachment/';
 		//设置需要生成缩略图，仅对图像文件有效
 		$upload->thumb = true;
 		// 设置引用图片类库包路径

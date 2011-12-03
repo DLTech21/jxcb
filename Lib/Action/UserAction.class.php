@@ -56,7 +56,7 @@ class UserAction extends CommonAction {
         	$this->error('密码不能为空！');
         }
         $User = M('User');
-		$User->password	=	md5($password);
+		$User->password	=	pwdHash($password);
 		$User->id			=	$id;
 		$result	=	$User->save();
         if(false !== $result) {

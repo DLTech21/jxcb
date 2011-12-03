@@ -149,22 +149,25 @@ class PublicAction extends Action
 		}
 
 		import ( 'ORG.Util.RBAC' );
+
 		$authInfo = RBAC::authenticate($map);
 		//使用用户名、密码和状态的方式进行认证
 		if(false === $authInfo) {
 			$this->error('帐号不存在或已禁用！');
 		}else {
-			if($authInfo['password'] != md5($_POST['password'])) {
+			if($authInfo['password'] != pwdHash($_POST['password'])) {
 				$this->error('密码错误！');
 			}
-			$_SESSION[C('USER_AUTH_KEY')]	=	$authInfo['id'];
-			$_SESSION['email']	=	$authInfo['email'];
+			$_SESSION[C('USER_AUTH_KEY')]		=	$authInfo['id'];
+			$_SESSION['email']					=	$authInfo['email'];
 			$_SESSION['loginUserName']		=	$authInfo['account'];
 			$_SESSION['loginNickName']		=	$authInfo['nickname'];
 			$_SESSION['lastLoginTime']		=	$authInfo['last_login_time'];
-			$_SESSION['login_count']	=	$authInfo['login_count'];
-			if($authInfo['account']=='admin') {
-				$_SESSION['administrator']		=	true;
+			$_SESSION['login_count']			=	$authInfo['login_count'];
+
+			if($authInfo['account']			=='admin')
+			{
+				$_SESSION['administrator']	=	true;
 			}
 			//保存登录信息
 			$User	=	M('User');
@@ -201,10 +204,21 @@ class PublicAction extends Action
 		}
 	}
 
-	function verify()//验证码
+/*验证码设置
+ *      语法：buildImageVerify(length, mode, type, width, height, verifyName)
+ *
+ * 		length： 验证码字符个数，默认为 4 位。
+ *      mode：   验证码字符类型，默认为数字。其他支持类型有：0字母 1数字 2大写字母 3小写字母 4中文 5混合（去掉了容易混淆的字符oOLl和数字01）。
+ *  	type：   验证码的图片类型，默认为 png 。
+ *    	width：	 验证码图片的宽度，默认根据验证码长度自动计算。
+ * 		height： 验证码图片的高度，默认为 22px 。
+ * 		verifyName： 验证码的 SESSION 注册名称，默认为 verify 。
+
+ **/
+	function verify()
 	{
 		import('ORG.Util.Image');
-		Image::buildImageVerify();
+		Image::buildImageVerify(4,5,png,40,28);
 	}
 }
 

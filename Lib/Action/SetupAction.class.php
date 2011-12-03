@@ -1,12 +1,29 @@
 <?php
-
+/*---------------------------------------------------
+ *设置信息
+ *
+ *
+ *
+ *
+ *
+ *
+ *--------------------------------------------------
+ **/
 class SetupAction extends CommonAction{
 
-    function _before_add() {
-    }
 
-    function delete(){
+	function index()
+	{
+		$setup = M("Setup");
+		$this->assign('setup',$setup);
 
+		$this->display();
+	}
+
+
+    function edit()
+    {
+		$this->display();
     }
 }
 ?>

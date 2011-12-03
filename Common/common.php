@@ -10,6 +10,9 @@
 // +----------------------------------------------------------------------
 // $Id$
 if (!defined('THINK_PATH')) exit();
+
+
+
 //公共函数
 function toDate($time, $format = 'Y-m-d H:i:s') {
 	if (empty ( $time )) {
@@ -67,20 +70,20 @@ function getStatus($status, $imageShow = true) {
 	switch ($status) {
 		case 0 :
 			$showText = '禁用';
-			$showImg = '<IMG SRC="' . __TMPL__ . '/Images/locked.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="禁用">';
+			$showImg = '<IMG SRC="'.__TMPL__.'Images/locked.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="禁用">';
 			break;
 		case 2 :
 			$showText = '待审';
-			$showImg = '<IMG SRC="' . __TMPL__ . '/Images/prected.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="待审">';
+			$showImg = '<IMG SRC="'.__TMPL__.'Images/prected.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="待审">';
 			break;
 		case - 1 :
 			$showText = '删除';
-			$showImg = '<IMG SRC="' . __TMPL__ . '/Images/del.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="删除">';
+			$showImg = '<IMG SRC="'.__TMPL__.'Images/del.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="删除">';
 			break;
 		case 1 :
 		default :
 			$showText = '正常';
-			$showImg = '<IMG SRC="' . __TMPL__ . '/Images/ok.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="正常">';
+			$showImg = '<IMG SRC="'.__TMPL__.'Images/ok.gif" WIDTH="20" HEIGHT="20" BORDER="0" ALT="正常">';
 
 	}
 	return ($imageShow === true) ?  $showImg  : $showText;
@@ -258,7 +261,7 @@ function sort_by($array, $keyname = null, $sortby = 'asc') {
 	 +----------------------------------------------------------
  * @return string
 	 +----------------------------------------------------------
- */
+
 function rand_string($len = 6, $type = '', $addChars = '') {
 	$str = '';
 	switch ($type) {
@@ -293,7 +296,8 @@ function rand_string($len = 6, $type = '', $addChars = '') {
 	}
 	return $str;
 }
+ */
 function pwdHash($password, $type = 'md5') {
-	return hash ( $type, $password );
+	return hash ( $type, $password.SECURITYCODE );
 }
 ?>

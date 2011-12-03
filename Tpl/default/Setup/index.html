@@ -6,7 +6,7 @@
 <div id="main" class="main" >
 <!-- 主体内容  -->
 <div class="content" >
-<div class="title"><present name="nodeName">[{$nodeName}] </present><eq name="level" value="1">应用</eq><eq name="level" value="2">模块</eq><eq name="level" value="3">操作</eq>列表 <span style="font-weight:normal">[ 分组:&nbsp;<volist name="groupList" id="tag"><a href="__URL__/index/group_id/{$key}">{$tag}</a>&nbsp;</volist><a href="__URL__">所有</a> ] </span></div>
+<div class="title"><present name="setupName">[{$setupName}] </present><eq name="level" value="1">应用</eq><eq name="level" value="2">模块</eq><eq name="level" value="3">操作</eq>列表 <span style="font-weight:normal">[ 分组:&nbsp;<volist name="groupList" id="tag"><a href="__URL__/index/group_id/{$key}">{$tag}</a>&nbsp;</volist><a href="__URL__">所有</a> ] </span></div>
 <!--  功能操作区域  -->
 <div class="operate" >
 <html:imageBtn name="add" value="新增" click="add()" style="impBtn hMargin fLeft shadow" />
@@ -30,7 +30,7 @@
 <!-- 列表显示区域  -->
 <div class="list" >
 <div id="result" class="result none"></div>
-<html:list id="checkList" name="setup" style="list" checkbox="true" action="true" datasource="list" show="id:编号|10%,name:名称,title:显示名,value:配置值,remarks:说明" actionlist="status|showStatus=$setup['id'],edit:编辑:id" />
+<html:list id="checkList" name="list" style="list" checkbox="true" action="true" datasource="list" show="id:编号|10%,name:名称,title:显示名,value:配置值,remarks:说明" actionlist="status|showStatus=$setup['id'],edit:编辑:id" />
 </div>
 <!--  分页显示区域 -->
 <div class="page">{$page}</div>
