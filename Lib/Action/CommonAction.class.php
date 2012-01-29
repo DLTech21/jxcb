@@ -444,7 +444,10 @@ function saveSort() {
 
 
 	function setup(){
-
+		$setup = M("setup");
+		
 	}
+	
+	
 }
 ?>
