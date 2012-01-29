@@ -43,7 +43,7 @@ class UserAction extends CommonAction {
 		$RoleUser = M("RoleUser");
 		$RoleUser->user_id	=	$userId;
         // 默认加入网站编辑组
-        $RoleUser->role_id	=	3;
+        $RoleUser->role_id	=	0;
 		$RoleUser->add();
 	}
 
